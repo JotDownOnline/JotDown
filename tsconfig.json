@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "outDir": "dist/",
+    "module": "esnext",
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "types": ["node"],
+
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+
+    "declaration": true,
+    "sourceMap": true,
+    "isolatedModules": true,
+
+    "newLine": "LF",
+
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+  },
+  "include": ["src/"],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "types": [
+    "typePatches"
+  ],
+}
