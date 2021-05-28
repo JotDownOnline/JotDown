@@ -25,6 +25,81 @@ Load up your favorite Markdown editor, or *any* Markdown editor, and type in "\*
 
 This was a primary driver for the development of JotDown: having the Editor give proper feedback to the user to allow for the best experience in both writing and editing.
 
+## Block Nodes
+
+There are a total of 13 block level nodes used in JotDown. A node is considered block level if it __both follows and is followed__ by a !!newline!!.
+
+| Node Type | Markdown | JotDown | Details |
+|-----------|----------|---------|---------|
+| Stylesheet | N/A | $$$ | Converts to HTML `<style>` tag |
+| Plaintext | N/A | \=\=\= | The browser will be responsible for rendering the content. Used to write HTML or plaintext without JotDown parsing the contents |
+| Table of Contents | N/A | :toc: | Auto-magically inserts a Table of Contents based on the document's headers |
+| Div | N/A | \{\{ and \}\} | The enclosed content is treated as a single node. Used for grouping together other block nodes so they can share overrides |
+| Comment | \/\* and \*\/ | N/A | A block level comment is used to annotate the raw source, the enclosed content is not rendered at all |
+| hr | ***/\-\-\-/\_\_\_ | \-\-\- | Horizontal rule used to separate content|
+| Heading | \# to \#\#\#\#\#\# | \#\1 to \#\6 | Heading to denote the start of a new section, a space is required after the heading level |
+| Text | N/A | N/A | A node that contains text |
+| Fences | \`\`\` | \`\`\` | A node that contains code |
+| Blockquote | > | \"\"\" | A node that contains a quote. In Markdown, each line of the quote requires a `>`; In JotDown, the entire quote can simply just go between the tags |
+| Spoiler | N/A | \+\+\+ | Renders to HTML `details` and `summary` tag. The contents within the tags will be hidden until the reader clicks on the summary|
+| Citation Definition | N/A | \(\^\) | Defines a citation |
+| Footnote Definition | N/A | \[\^\] | Defines a footnote |
+
+## Inline Nodes
+
+There are a total of 17 inline level nodes used in JotDown. A node is considered inline level if it can be contained in any __block level__ node that allows for such.
+
+|Node Type | Markdown | JotDown | Details|
+|----------|----------|--------|--------|
+| Span | N/A | \{\{ and \}\} | The enclosed content is treated as a single node. Used for grouping together multiple inline nodes so they can share overrides |
+| Comment | N/A | \/\* and \*\/ | The enclosed content is not rendered at all|
+| Plaintext | N/A | \=\=\= | The browser will be responsible for rendering the content. Used to write HTML or plaintext without JotDown parsing the contents |
+| Abbreviation | N/A | \>\>ShortText\<\<\(Full Text\) | Renders to HTML `abbr` tag |
+| Superscript | N/A | \^ | Renders to HTML `sup` tag |
+| Subscript | N/A | \_ | Renders to HTML `sub` tag |
+| Strong | **/\_\_ | \!\! | Renders to HTML `strong` tag |
+| Underline | N/A | \_\_ | Renders to HTML `u` tag |
+| Mark | N/A | \|\| | Renders to HTML `mark` tag |
+| Emphasis | */\_ | \/\/ | Renders to HTML `em` tag |
+| Strikethrough | \~\~ | \~\~ | Renders to HTML `s` tag |
+| Code | N/A | \` | Renders to HTML `code` tag |
+| Link | \[text\]\(URL title\) | \[text\]\(URL title\) | Renders to HTML `a` tag |
+| Image | \!\[alt-text\]\(URL title\) | \!\[alt-text\]\(URL\) | Renders to HTML `img` tag |
+| Email | \!\[text\]\(email\) | \!\[text\]\(email\) | Renders to HTML `a` tag with `mailto` attribute |
+| Citation | N/A | \(\^\) | Used to cite a source or attribute credit in a parenthetical manner |
+| Footnote | N/A | \[\^\] | Used to cite a source or attribute credit in a superscripted note |
+
+## Tables and Lists
+
+The syntax for tables and lists differ a little bit from Markdown as well. Below are examples for both:
+
+```
+// TABLE
+// table with heading row
+|[Table|Heading]|
+|Table|Contents|
+
+// table without heading row
+|Table|Heading|
+|Table|Contents|
+```
+
+```
+// LIST
+// unordered lists uses prefix '. ' (period followed by a space)
+// ordered lists uses prefix ') ' (right parenthesis followed by a space)
+
+. Unordered List 1 Item 1
+ ) Ordered List 1 Item 1
+ ) Ordered List 1 Item 2
+. [x] Unordered List 1 Item 2 with task item
+
+// indentations determine list levels
+// the first list item determines the type of list it is
+. Unordered List Item 1
+) Unordered List Item 2
+```
+
 ## Links
 
 JotDown is open sourced: you can view the JotDown spec [here](http://jotdown.online/spec), and the docs [here](http://jotdown.online/docs).
