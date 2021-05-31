@@ -2,7 +2,7 @@
   "name": "@jotdown/jotdown",
   "version": "0.0.5b",
   "public": true,
-  "description": "Scans and parses plaintext in JotDown Format to either a node tree or to a rendered document.",
+  "description": "Scans and parses JotDown formatted plaintext to either a node tree or to a rendered document.",
   "dependencies": {
     "@types/node": "^14.14.41",
     "nanoid": "^3.1.22"

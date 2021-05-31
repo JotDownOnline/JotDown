@@ -37,7 +37,7 @@ There are a total of 13 block level nodes used in JotDown. A node is considered 
 | Div | N/A | \{\{ and \}\} | The enclosed content is treated as a single node. Used for grouping together other block nodes so they can share overrides |
 | Comment | \/\* and \*\/ | N/A | A block level comment is used to annotate the raw source, the enclosed content is not rendered at all |
 | hr | ***/\-\-\-/\_\_\_ | \-\-\- | Horizontal rule used to separate content|
-| Heading | \# to \#\#\#\#\#\# | \#\1 to \#\6 | Heading to denote the start of a new section, a space is required after the heading level |
+| Heading | \# to \#\#\#\#\#\# | #1 to #6 | Heading to denote the start of a new section, a space is required after the heading level |
 | Text | N/A | N/A | A node that contains text |
 | Fences | \`\`\` | \`\`\` | A node that contains code |
 | Blockquote | > | \"\"\" | A node that contains a quote. In Markdown, each line of the quote requires a `>`; In JotDown, the entire quote can simply just go between the tags |
